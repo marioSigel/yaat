@@ -1,6 +1,6 @@
-host = '127.0.0.1'
-user = 'yaat_user'
-passwd = 'secret_string'
+host = ''
+user = 'yaat'
+passwd = ''
 db = 'yaat'
 
-user_name = 'marioS'
+user_name = ''

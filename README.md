@@ -19,7 +19,7 @@
   * append ``` --exclude "*" --include "<number prefix, eg. 1>_*" ``` to get a subset of images. This should be discussed with Mario/Florian.
   
 ## Start application:
-* Insert your username in user field of config.py
+* Insert your user_name (unique id, e.g. your name) host, passw (yaat database credentials from email) in config.py
 * PYTHONPATH=. python3 app.py
 
 
