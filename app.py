@@ -18,6 +18,8 @@ class MainWindow():
         file_list = os.listdir(img_dir)
         completed_list = get_completed_list(self.con)
         self.file_list = sorted([n for n in file_list if n not in completed_list])
+        assert not [f for f in self.file_list if not f.endswith('.jpg')], \
+            'Corrupted image folder. Only .jpg files are allowed.'
 
         self.img_id = 0
         self.load_img(self.c_file_path())
