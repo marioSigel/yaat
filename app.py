@@ -17,12 +17,14 @@ class MainWindow():
         self.con = get_con()
         file_list = os.listdir(img_dir)
         completed_list = get_completed_list(self.con)
-        self.file_list = [n for n in file_list if n not in completed_list]
+        self.file_list = sorted([n for n in file_list if n not in completed_list])
 
         self.img_id = 0
         self.load_img(self.c_file_path())
 
-        self.w = tkinter.Label(window, text=self.c_file_name())
+        self.im_label_var = tkinter.StringVar()
+        self.im_label_var.set(self.c_file_name())
+        self.w = tkinter.Label(window, textvariable=self.im_label_var)
         self.w.pack()
         self.canvas = tkinter.Canvas(window, width = self.width, height = self.height, borderwidth=-4)
         self.canvas.bind("<Button-1>", self.callback_click)
@@ -96,6 +98,7 @@ class MainWindow():
         self.p2 = None
 
         self.img_id += 1
+        self.im_label_var.set(self.c_file_name())
         self.load_img(self.c_file_path())
         self.update_canvas(self.cv_img)
 
